@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <title>João Campinhos{% if page.title %} - {{ page.title }}{% endif %}</title>
+
+  <link rel="stylesheet" href="/css/styles.css"><!--MINIFIED PLOX!!-->
+  <link rel="stylesheet" href="/css/syntax.css">
+  
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="apple-touch-icon-precomposed" href="/favicon.png">
+  <meta name="apple-mobile-web-app-title" content="campinhos.pt">
+
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
+
+  <!--MOAR META TAGS FOR TEH LOVE OF GOD!!!-->
+</head>
+<body>
+  <div class="wrapper">
+    <header>
+      <h1 class="name">JOÃO CAMPINHOS</h1>
+      <p class="random" id="random">I Like turtes.</p>
+      <nav>
+        <ul>
+          {% if page.title == "Archive" %}
+          <li> <a href="/">Blog</a> </li>
+          <li> <a class="active" href="/archive.html">Archive</a> </li>
+          <li> <a href="/about.html">About</a> </li>
+          {% elsif page.title == "About" %}
+          <li> <a href="/">Blog</a> </li>
+          <li> <a href="/archive.html">Archive</a> </li>
+          <li> <a class="active" href="/about.html">About</a> </li>
+          {% else %}
+          <li> <a class="active" href="/">Blog</a> </li>
+          <li> <a href="/archive.html">Archive</a> </li>
+          <li> <a href="/about.html">About</a> </li>          
+          {% endif %}
+        </ul>
+      </nav>
+    </header>
+    <div class="main">
+      {{ content }}
+    </div>
+  </div>
+  <script type="text/javascript">
+    var frases = ["Hello World", "I Like turtles", "I don't have design skills", "I'm only 21", "I even dream about code","I'm working on a CS degree","I'm a portuguese coder"];
+    var random = Math.floor(Math.random()*frases.length);
+    document.getElementsByClassName("random")[0].innerHTML=frases[random];
+  </script>
+</body>
+</html>

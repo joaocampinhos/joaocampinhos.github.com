@@ -1,0 +1,8 @@
+#auto: true
+server: true
+markdown: rdiscount
+pygments: true
+exclude: ["README.md","TODO.md","Thumbs.db"]
+permalink: :year/:month/:title
+#paginate: 5
+#future: true
