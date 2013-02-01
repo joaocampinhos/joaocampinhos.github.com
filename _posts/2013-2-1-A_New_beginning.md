@@ -30,4 +30,4 @@ That's right, my project for the upcoming month is to create a **css framework**
 
 ***
 
-I am having some issues with the paginator feature of Jekyll so I decided to disable it for now. Don't know the problem yet but for now it should be fine.
+**update:** I am having some issues with the paginator feature of Jekyll so I decided to disable it for now. Don't know the problem yet but for now it should be fine.
