@@ -10,12 +10,11 @@
   <meta name="apple-mobile-web-app-title" content="campinhos.pt">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <link rel="stylesheet" href="/css/styles.css"><!--MINIFIED PLOX!!-->
+  <link rel="stylesheet" href="/css/styles.css">
   <link rel="stylesheet" href="/css/syntax.css">
 
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
 
-  <!--MOAR META TAGS FOR TEH LOVE OF GOD!!!-->
 </head>
 <body>
   <div class="row">
@@ -28,14 +27,22 @@
           {% if page.title == "Archive" %}
           <li> <a href="/">Blog</a> </li>
           <li> <a class="active" href="/archive.html">Archive</a> </li>
+          <li> <a href="/projects.html">Projects</a> </li>
           <li> <a href="/about.html">About</a> </li>
           {% elsif page.title == "About" %}
           <li> <a href="/">Blog</a> </li>
           <li> <a href="/archive.html">Archive</a> </li>
+          <li> <a href="/projects.html">Projects</a> </li>
           <li> <a class="active" href="/about.html">About</a> </li>
+          {% elsif page.title == "Projects" %}
+          <li> <a href="/">Blog</a> </li>
+          <li> <a href="/archive.html">Archive</a> </li>
+          <li> <a class="active" href="/projects.html">Projects</a> </li>
+          <li> <a href="/about.html">About</a> </li>
           {% else %}
           <li> <a class="active" href="/">Blog</a> </li>
           <li> <a href="/archive.html">Archive</a> </li>
+          <li> <a href="/projects.html">Projects</a> </li>
           <li> <a href="/about.html">About</a> </li>          
           {% endif %}
         </ul>
