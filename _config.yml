@@ -5,3 +5,4 @@ pygments: true
 exclude: ["README.md","TODO.md","Thumbs.db"]
 permalink: /:year/:month/:title
 future: false
+paginate: 10
