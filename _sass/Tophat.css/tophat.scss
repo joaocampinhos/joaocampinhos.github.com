@@ -1,0 +1,223 @@
+@charset "UTF-8";
+/*------------------------------------------------------------------------
+   _______                 _               _                            
+  |__   __|               | |             | |                           
+     | |    ___    _ __   | |__     __ _  | |_        ___   ___   ___   
+     | |   / _ \  | '_ \  | '_ \   / _` | | __|      / __| / __| / __|  
+     | |  | (_) | | |_) | | | | | | (_| | | |_   _  | (__  \__ \ \__ \  
+     |_|   \___/  | .__/  |_| |_|  \__,_|  \__| (_)  \___| |___/ |___/  
+                  | |                                                   
+                  |_|                                                   
+
+  + URL:        http://campinhos.pt/tophat/        
+  + Version:    0.1 (March 2013)
+  + Author:     João Campinhos (joao@campinhos.pt)
+  + Source:     https://github.com/joaocampinhos/Tophat
+
+------------------------------------------------------------------------*/
+  
+
+@import "partials/_settings";                   // Settings and variables
+@import "partials/_mixins";                     // Useful mixins and functions
+
+@import "partials/_reset";                      // Reset with normalize.css
+@import "partials/_typography";                 // Main typography of the framework
+
+@import "partials/_fluid-grid";                 // Fluid grid
+//@import "partials/_grid";                     // Non-fluid grid. disabled by default
+
+@import "partials/_responsive";                 // The responsive bits and bytes
+         
+
+/*---------------------------------
+  ~USER-STYLES
+---------------------------------*/
+
+$colorBack: #ECECE7;
+$colorBack2: #fff;
+$blue: #556270;
+$color-title: #313842;
+
+//UTILITY CLASSES
+//----------------
+
+.center {
+  text-align: center;
+}
+
+
+
+
+
+body {
+  background-color: $colorBack;
+}
+
+
+header {
+  background-color: $blue;
+  color: $colorBack;
+  margin-top: 40px;
+  padding-bottom: 5px;
+}
+
+.name {
+  margin:0;
+  padding: 50px;
+  font-weight: 800;
+}
+
+
+//this is ugly and I'm aware
+nav {
+  ul {
+    list-style-type:none;
+    padding:0;
+    li {
+      display:inline-block;
+      margin:0 3px;
+      a {
+        &:link, &:visited, &:active {
+          color:#8FA5BC; text-decoration:none;
+        }
+        &.active {
+          color: #fff;
+        }
+        &:hover {
+          color:$colorBack2; text-decoration:none;
+        }
+      }
+    }
+  }
+}
+
+.random {
+  margin-top: -40px;
+  margin-bottom: 30px;
+}
+
+.main{
+  background-color: #fff;
+  color: #404955;
+  h1,h2,h3,h4,h5,h6{color: $color-title;}
+  blockquote {
+    padding: 0 0 0 15px;
+    margin: 0 0 20px;
+    border-left: 5px solid $colorBack;
+  }
+  margin-bottom: 40px;
+  hr {border:0; border-top: 1px dashed #ccc;}
+}
+
+a:link, a:visited, a:active {color: #4a87cb; text-decoration:none;}
+a:hover {color: #7e9cbc;}
+
+
+.main-content {
+  padding-top: 20px;
+  padding-bottom: 10px;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+.title {
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 10px; 
+  a:link, a:visited, a:hover, a:active {color:$color-title;}  
+}
+
+.date {
+  text-align: center;
+  margin-bottom: -18px;
+  font-size: 80%;
+  span {
+    background-color: #fff;
+    padding: 0 10px;
+  }
+}
+
+.content {
+  margin: 50px 0;
+}
+
+hr.title-line {
+  border: 0;
+  border-top: 1px solid #888;
+}
+
+.paginator {
+  min-height: 70px;
+  background-color: $blue;
+  ul {
+    text-align: center;
+    list-style-type:none;
+    margin:0;
+    padding:0;
+    li {
+      margin: 10px;
+      display:inline-block;
+      a:link, a:visited, a:hover, a:active {color:$colorBack;}
+      font-size: 40px;
+      font-weight: 600;
+    }
+  }
+}
+
+.prev-post,.next-post {
+  height: 70px;
+  margin: 0 50px;
+  font: 600 20px/70px "open sans", sans-serif;
+  a {
+    &:link, &:visited, &:active {
+      color:$colorBack;
+    }
+    &:hover {
+      color:$colorBack2;
+    }
+  } 
+}
+
+.prev-post {
+  float: left;
+}
+.next-post {
+  float: right;
+}
+
+.face {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto;
+  img {
+    border-radius: 100px;
+  }
+}
+
+
+.archive {
+  list-style-type:none;
+  border-left: 5px solid $blue;
+  padding-left: 10px;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  &:last-of-type {
+    padding-bottom: 0; 
+  }
+  &:first-of-type {
+    padding-top: 0; 
+  }
+  a {
+    &:link, &:visited, &:active {
+      color:#404955;
+    }
+    &:hover {
+      color: #4a87cb;
+    }
+  } 
+}
+
+.grey{
+  color: #ccc;
+}
