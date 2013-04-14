@@ -2,6 +2,6 @@ auto: true
 server: true
 markdown: rdiscount
 pygments: true
-permalink: /:year/:month/:title
+permalink: /blog/:year/:month/:day/:title
 paginate: 10
 exclude: ["README.md","TODO.md","Thumbs.db"]
