@@ -1,5 +1,5 @@
 ---
-date: 2013-3-1 12:47:34
+date: 2013-03-01 12:47:34
 layout: post
 title: Update & Projects
 comments: true

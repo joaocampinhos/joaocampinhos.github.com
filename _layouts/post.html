@@ -15,15 +15,15 @@ layout: default
 <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 {% endif %}
 </div>
-<div class="paginator">
+<div class="paginator row">
   {% if page.next%}
-  <div class="prev-post">
-    <a href="{{ page.next.url }}">« Next post</a>
+  <div class="prev-post delta col6">
+    <p class="center"><a href="{{ page.next.url }}">« Next post</a></p>
   </div>
   {% endif %}
   {% if page.previous%}
-  <div class="next-post">
-    <a href="{{ page.previous.url }}"> Previous post »</a>
+  <div class="next-post delta col6">
+    <p class="center"><a href="{{ page.previous.url }}"> Previous post »</a><p>
   </div>
   {% endif %}
 </div>

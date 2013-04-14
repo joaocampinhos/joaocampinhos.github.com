@@ -1,5 +1,5 @@
 ---
-date: 2013-1-31 23:59:59
+date: 2013-01-31 23:59:59
 layout: post
 title: A New Beginning
 comments: true

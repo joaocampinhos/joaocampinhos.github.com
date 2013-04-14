@@ -148,7 +148,6 @@ hr.title-line {
 }
 
 .paginator {
-  min-height: 70px;
   background-color: $blue;
   ul {
     text-align: center;
@@ -166,9 +165,9 @@ hr.title-line {
 }
 
 .prev-post,.next-post {
-  height: 70px;
-  margin: 0 50px;
-  font: 600 20px/70px "open sans", sans-serif;
+  //height: 70px;
+  //margin: 0 50px;
+  font-weight: 600 20px/70px "open sans", sans-serif;
   a {
     &:link, &:visited, &:active {
       color:$colorBack;
@@ -179,12 +178,12 @@ hr.title-line {
   } 
 }
 
-.prev-post {
+/*.prev-post {
   float: left;
-}
-.next-post {
+}*/
+/*.next-post {
   float: right;
-}
+}*/
 
 .face {
   width: 120px;
@@ -220,4 +219,10 @@ hr.title-line {
 
 .grey{
   color: #ccc;
+}
+
+.thumb {
+  height: auto;
+  width:100%;
+  max-width: 440px;
 }
