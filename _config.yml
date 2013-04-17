@@ -3,4 +3,3 @@ server: true
 markdown: rdiscount
 pygments: true
 paginate: 10
-exclude: ["README.md","TODO.md","Thumbs.db"]
