@@ -1,5 +1,0 @@
-auto: true
-server: true
-markdown: rdiscount
-pygments: true
-paginate: 10
