@@ -1,21 +1,20 @@
 body {
-  font-family: "Source Code Pro";
+  background-color: #F5F6FB;
+  font-family: 'Karla', sans-serif;
   text-align: center;
-  color: #F8D09C;
-  background-color: #F6623E;
+  font-size: 1.2em;
+  margin-top: 4em;
 }
 
 h1 {
-  text-transform:uppercase;
-  font-size: 5em;
-  margin: 0.5em 0 0 0;
+  font-size: 2.3em;
+  color: #444D84;
+  margin-bottom: 0.2em;
 }
 
 p {
-  font-family: 'Neuton', 'Georgia', serif;
-  font-size: 1.5em;
+  color: #6E6E6C;
   margin-top: 0;
-  margin-bottom: 1.5em;
 }
 
 .nav {
@@ -25,17 +24,33 @@ p {
 
 .nav > li {
   display: inline-block;
-  margin-right: 40px;
-  margin-bottom: 40px;
-  font-size: 2em;
+  margin: 0 10px 10px 0;
 }
 
 a {
-  color: #2D3035;
+  color: #918AA9;
   text-decoration: none;
-  border-bottom: 2px solid #2D3035;
 }
 
 a:hover {
-  border-bottom: 2px solid #963F35;
+  color: #444D84;
+  border-bottom: 1px solid #333C67;
+}
+
+@media only screen and (max-width : 800px) {
+  body {
+    margin-top: 0;
+  }
+}
+
+@media only screen and (max-width : 250px) {
+  body {
+    font-size: 1em;
+    text-align: left;
+    margin-top: 0;
+  }
+  .nav > li {
+    display: block;
+    font-weight: 700;
+  }
 }
