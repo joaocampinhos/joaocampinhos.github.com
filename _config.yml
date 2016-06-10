@@ -1,0 +1,6 @@
+author:
+  name: João Campinhos
+  email: joao@campinhos.pt
+url: http://campinhos.pt
+title: João Campinhos
+exclude: ["gulpfile.babel.js", "package.json", "README.md", "assets", "node_modules", "CNAME"]
