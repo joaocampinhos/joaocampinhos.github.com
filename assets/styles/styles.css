@@ -1,32 +1,95 @@
 body {
   margin: 0;
-  color: #fff;
+  color: #f9f1e9;
+  font-size: 20px;
 }
-
 
 .large-header {
   position: relative;
   width: 100%;
-  background: #232323;
+  background: #1b1b1b;
   overflow: hidden;
   background-size: cover;
   background-position: center center;
 }
 
-.main-title {
+.center {
   position: absolute;
-  margin: 0;
-  padding: 0;
-  color: #f9f1e9;
-  text-align: center;
   top: 50%;
   left: 50%;
-  -webkit-transform: translate3d(-50%, -50%, 0);
   transform: translate3d(-50%, -50%, 0);
 }
 
+/* Projects */
+
+/* About */
+
+/* NAV */
+
 nav {
-  position: absolute;
+  position: fixed;
   z-index: 1;
-  color: #ea2e2d;
+  animation-duration: 1s;
+  animation-fill-mode: both;
+  font-family: 'Inconsolata', monospace;
+  font-weight: 700;
+}
+
+nav > ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+nav > ul > li {
+  display: inline-block;
+  padding-left: 1em;
+}
+
+nav a {
+  text-decoration: none;
+  color: #d3d7d6;
+  transition: all 0.5s ease;
+  opacity: 0.5;
+}
+
+nav a.active {
+  opacity: 1;
+}
+
+nav.dark a {
+  color: #333;
+}
+
+nav a:hover {
+  opacity: 1;
+}
+
+@keyframes slideInDown {
+  from {
+    transform: translate3d(0, -100%, 0);
+    visibility: visible;
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.slideInDown {
+  animation-name: slideInDown;
+}
+
+@keyframes slideOutUp {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    visibility: hidden;
+    transform: translate3d(0, -100%, 0);
+  }
+}
+
+.slideOutUp {
+  animation-name: slideOutUp;
 }

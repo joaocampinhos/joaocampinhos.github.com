@@ -1,149 +1,196 @@
-(() => {
-  let width;
-  let height;
-  let largeHeader;
-  let canvas;
-  // let ctx;
-  // let target;
-  // let points;
-  // let animateHeader = true;
+/* eslint no-console: ["error", { allow: ["log", "warn"] }] */
 
-  function initHeader() {
-    width = window.innerWidth;
-    height = window.innerHeight;
-    // target = { x: width / 2, y: height / 2 };
+const elements = document.querySelectorAll('nav a');
+Array.prototype.forEach.call(elements, (el) => {
+  el.addEventListener('click', (event) => {
+    event.preventDefault();
+    document.querySelector('nav').classList.remove('slideInDown');
+    document.querySelector('nav').classList.add('slideOutUp');
+    window.setTimeout(() => {
+      location.href = el.getAttribute('href');
+    }, 500);
+  });
+});
 
-    largeHeader = document.getElementById('large-header');
-    largeHeader.style.height = `${height}px`;
+window.addEventListener('scroll', () => {
+  const top = window.pageYOffset || document.documentElement.scrollTop;
+  const hei = document.querySelector('nav').clientHeight / 2;
+  if (top + hei >= window.innerHeight) document.querySelector('nav').classList.add('dark');
+  else document.querySelector('nav').classList.remove('dark');
+});
 
-    canvas = document.getElementById('demo-canvas');
-    canvas.width = width;
-    canvas.height = height;
-    // ctx = canvas.getContext('2d');
+let width;
+let height;
+let largeHeader;
+let canvas;
+let ctx;
+let target;
+const tang = [];
+
+class Circle {
+  constructor(x, y, rad, color, fade = false) {
+    this.x = x;
+    this.y = y;
+    this.radius = rad;
+    this.color = color;
+    this.alpha = 1;
+    this.fade = fade;
   }
-  // Main
-  // initAnimation();
-  // addListeners();
-  initHeader();
-  /*
-    // create points
-    points = [];
-    for(var x = 0; x < width; x = x + width/20) {
-      for(var y = 0; y < height; y = y + height/20) {
-        var px = x + Math.random()*width/20;
-        var py = y + Math.random()*height/20;
-        var p = {x: px, originX: px, y: py, originY: py };
-        points.push(p);
-      }
-    }
 
-    // for each point find the 5 closest points
-    for(var i = 0; i < points.length; i++) {
-      var closest = [];
-      var p1 = points[i];
-      for(var j = 0; j < points.length; j++) {
-        var p2 = points[j];
-        if(!(p1 === p2)) {
-          var placed = false;
-          for(var k = 0; k < 5; k++) {
-            if(!placed) {
-              if(closest[k] === undefined) {
-                closest[k] = p2;
-                placed = true;
-              }
-            }
-          }
-
-          for(var k = 0; k < 5; k++) {
-            if(!placed) {
-              if(getDistance(p1, p2) < getDistance(p1, closest[k])) {
-                closest[k] = p2;
-                placed = true;
-              }
-            }
-          }
-        }
-      }
-      p1.closest = closest;
-    }
-
-    // assign a circle to each point
-    for(let i in points) {
-      var c = new Circle(points[i], 2+Math.random()*2, 'rgba(255,255,255,0.3)');
-      points[i].circle = c;
+  animate(n = 1) {
+    this.radius += n;
+    if (this.fade && this.alpha > 0) {
+      this.alpha = Math.abs((this.alpha - 0.01).toFixed(2));
     }
   }
 
-  // Event handling
-  function addListeners() {
-  if(!('ontouchstart' in window)) {
-  window.addEventListener('mousemove', mouseMove);
+  draw() {
+    ctx.save();
+    ctx.globalAlpha = this.alpha;
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
+    ctx.fillStyle = this.color;
+    ctx.fill();
+    ctx.restore();
   }
-  window.addEventListener('scroll', scrollCheck);
-  window.addEventListener('resize', resize);
-  }
+}
 
-  function mouseMove(e) {
-  var posy = 0;
-  var posx = 0;
-  if (e.pageX || e.pageY) {
-  posx = e.pageX;
-  posy = e.pageY;
-  }
-  else if (e.clientX || e.clientY)    {
-  posx = e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft;
-  posy = e.clientY + document.body.scrollTop + document.documentElement.scrollTop;
-  }
-  target.x = posx;
-  target.y = posy;
-  }
+function initHeader() {
+  const dpi = document.getElementById('testdiv').offsetWidth * window.devicePixelRatio;
+  const scaleFactor = dpi / 96;
 
-  function scrollCheck() {
-  if(document.body.scrollTop > height) animateHeader = false;
-  else animateHeader = true;
-  }
+  width = Math.ceil(window.innerWidth * scaleFactor);
+  height = Math.ceil(window.innerHeight * scaleFactor);
+  target = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
 
-  function resize() {
-  width = window.innerWidth;
-  height = window.innerHeight;
-  largeHeader.style.height = height+'px';
+  largeHeader = document.getElementById('large-header');
+  largeHeader.style.height = `${window.innerHeight}px`;
+
+  canvas = document.getElementById('canvas');
+
+  canvas.style.width = window.innerWidth;
+  canvas.style.height = window.innerHeight;
+
   canvas.width = width;
   canvas.height = height;
-  }
 
-  // animation
-  function initAnimation() {
+  ctx = canvas.getContext('2d');
+  //ctx.scale(scaleFactor, scaleFactor);
+
+  tang.push(new Circle(target.x, target.y, 60, '#58fd71'));
+  tang.push(new Circle(target.x, target.y, 1, '#1b1b1b'));
+  tang.push(new Circle(target.x, target.y, 1, '#58fd71', true));
+  // tang.push(new Circle(target.x, target.y, 1, '#58fd71', true));
+  // tang.push(new Line(target.x + 100, target.y - 100, target.x - 100, target.y + 100, '#fcd060'));
+}
+
+function animate() {
+  ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+  for (const e of tang) {
+    // e.toCenter();
+    e.animate(5);
+    // e.radius += 5;
+    e.draw();
+  }
+  requestAnimationFrame(animate);
+}
+
+function initAnimation() {
+  animate();
+  // for(var i in points) {
+  // shiftPoint(points[i]);
+  // }
+}
+
+// Main
+// addListeners();
+initHeader();
+initAnimation();
+/*
+// create points
+
+// for each point find the 5 closest points
+for(var i = 0; i < points.length; i++) {
+var closest = [];
+var p1 = points[i];
+for(var j = 0; j < points.length; j++) {
+var p2 = points[j];
+if(!(p1 === p2)) {
+var placed = false;
+for(var k = 0; k < 5; k++) {
+if(!placed) {
+if(closest[k] === undefined) {
+closest[k] = p2;
+placed = true;
+}
+}
+}
+
+for(var k = 0; k < 5; k++) {
+if(!placed) {
+if(getDistance(p1, p2) < getDistance(p1, closest[k])) {
+closest[k] = p2;
+placed = true;
+}
+}
+}
+}
+}
+p1.closest = closest;
+}
+
+// assign a circle to each point
+for(let i in points) {
+var c = new Circle(points[i], 2+Math.random()*2, 'rgba(255,255,255,0.3)');
+points[i].circle = c;
+}
+}
+
+// Event handling
+function addListeners() {
+if(!('ontouchstart' in window)) {
+window.addEventListener('mousemove', mouseMove);
+}
+window.addEventListener('scroll', scrollCheck);
+window.addEventListener('resize', resize);
+}
+
+function mouseMove(e) {
+var posy = 0;
+var posx = 0;
+if (e.pageX || e.pageY) {
+posx = e.pageX;
+posy = e.pageY;
+}
+else if (e.clientX || e.clientY)    {
+posx = e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft;
+posy = e.clientY + document.body.scrollTop + document.documentElement.scrollTop;
+}
+target.x = posx;
+target.y = posy;
+}
+
+function scrollCheck() {
+if(document.body.scrollTop > height) animateHeader = false;
+else animateHeader = true;
+}
+
+function resize() {
+width = window.innerWidth;
+height = window.innerHeight;
+largeHeader.style.height = height+'px';
+canvas.width = width;
+canvas.height = height;
+}
+
+// animation
+function initAnimation() {
   animate();
   for(var i in points) {
-  shiftPoint(points[i]);
+    shiftPoint(points[i]);
   }
-  }
-
-  function animate() {
-  if(animateHeader) {
-  ctx.clearRect(0,0,width,height);
-  for(var i in points) {
-// detect points in range
-if(Math.abs(getDistance(target, points[i])) < 4000) {
-points[i].active = 0.3;
-points[i].circle.active = 0.6;
-} else if(Math.abs(getDistance(target, points[i])) < 20000) {
-points[i].active = 0.1;
-points[i].circle.active = 0.3;
-} else if(Math.abs(getDistance(target, points[i])) < 40000) {
-points[i].active = 0.02;
-points[i].circle.active = 0.1;
-} else {
-points[i].active = 0;
-points[i].circle.active = 0;
 }
 
-drawLines(points[i]);
-points[i].circle.draw();
-}
-}
-requestAnimationFrame(animate);
-}
 
 function shiftPoint(p) {
   TweenLite.to(p, 1+1*Math.random(), {x:p.originX-50+Math.random()*100,
@@ -154,40 +201,5 @@ function shiftPoint(p) {
 }
 
 // Canvas manipulation
-function drawLines(p) {
-  if(!p.active) return;
-  for(var i in p.closest) {
-    ctx.beginPath();
-    ctx.moveTo(p.x, p.y);
-    ctx.lineTo(p.closest[i].x, p.closest[i].y);
-    ctx.strokeStyle = 'rgba(156,217,249,'+ p.active+')';
-        ctx.stroke();
-        }
-        }
 
-        function Circle(pos,rad,color) {
-        var _this = this;
-
-        // constructor
-        (function() {
-         _this.pos = pos || null;
-         _this.radius = rad || null;
-         _this.color = color || null;
-         })();
-
-        this.draw = function() {
-        if(!_this.active) return;
-        ctx.beginPath();
-        ctx.arc(_this.pos.x, _this.pos.y, _this.radius, 0, 2 * Math.PI, false);
-        ctx.fillStyle = 'rgba(156,217,249,'+ _this.active+')';
-            ctx.fill();
-            };
-            }
-
-            // Util
-            function getDistance(p1, p2) {
-            return Math.pow(p1.x - p2.x, 2) + Math.pow(p1.y - p2.y, 2);
-            }
-
-            */
-})();
+*/
