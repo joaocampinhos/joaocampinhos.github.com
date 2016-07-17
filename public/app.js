@@ -1,10 +1,7 @@
 'use strict';
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
 /* eslint no-console: ["error", { allow: ["log", "warn"] }] */
+/* eslint max-len: ["error", { "ignoreComments": true }] */
 
 var elements = document.querySelectorAll('nav a');
 Array.prototype.forEach.call(elements, function (el) {
@@ -18,59 +15,45 @@ Array.prototype.forEach.call(elements, function (el) {
   });
 });
 
-window.addEventListener('scroll', function () {
-  var top = window.pageYOffset || document.documentElement.scrollTop;
-  var hei = document.querySelector('nav').clientHeight / 2;
-  if (top + hei >= window.innerHeight) document.querySelector('nav').classList.add('dark');else document.querySelector('nav').classList.remove('dark');
+/*
+window.addEventListener('scroll', () => {
+  const top = window.pageYOffset || document.documentElement.scrollTop;
+  const hei = document.querySelector('nav').clientHeight / 2;
+  if (top + hei >= window.innerHeight) document.querySelector('nav').classList.add('dark');
+  else document.querySelector('nav').classList.remove('dark');
 });
+*/
 
 var width = void 0;
 var height = void 0;
 var largeHeader = void 0;
 var canvas = void 0;
 var ctx = void 0;
-var target = void 0;
-var tang = [];
+// let target;
+var points = [];
 
-var Circle = function () {
-  function Circle(x, y, rad, color) {
-    var fade = arguments.length <= 4 || arguments[4] === undefined ? false : arguments[4];
-
-    _classCallCheck(this, Circle);
-
+/*
+class Circle {
+  constructor(x, y, rad, color, alpha) {
     this.x = x;
     this.y = y;
     this.radius = rad;
-    this.color = color;
-    this.alpha = 1;
-    this.fade = fade;
+    this.color = 'rgba(255,255,255';
+    this.alpha = alpha;
   }
 
-  _createClass(Circle, [{
-    key: 'animate',
-    value: function animate() {
-      var n = arguments.length <= 0 || arguments[0] === undefined ? 1 : arguments[0];
+  animate() {
+    this.alpha = Math.random();
+  }
 
-      this.radius += n;
-      if (this.fade && this.alpha > 0) {
-        this.alpha = Math.abs((this.alpha - 0.01).toFixed(2));
-      }
-    }
-  }, {
-    key: 'draw',
-    value: function draw() {
-      ctx.save();
-      ctx.globalAlpha = this.alpha;
-      ctx.beginPath();
-      ctx.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
-      ctx.fillStyle = this.color;
-      ctx.fill();
-      ctx.restore();
-    }
-  }]);
-
-  return Circle;
-}();
+  draw() {
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
+    ctx.fillStyle = `${this.color} , ${this.alpha})`;
+    ctx.fill();
+  }
+}
+*/
 
 function initHeader() {
   var dpi = document.getElementById('testdiv').offsetWidth * window.devicePixelRatio;
@@ -78,7 +61,7 @@ function initHeader() {
 
   width = Math.ceil(window.innerWidth * scaleFactor);
   height = Math.ceil(window.innerHeight * scaleFactor);
-  target = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
+  // target = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
 
   largeHeader = document.getElementById('large-header');
   largeHeader.style.height = window.innerHeight + 'px';
@@ -92,11 +75,28 @@ function initHeader() {
   canvas.height = height;
 
   ctx = canvas.getContext('2d');
-  //ctx.scale(scaleFactor, scaleFactor);
+  // ctx.scale(scaleFactor, scaleFactor);
 
-  tang.push(new Circle(target.x, target.y, 60, '#58fd71'));
-  tang.push(new Circle(target.x, target.y, 1, '#1b1b1b'));
-  tang.push(new Circle(target.x, target.y, 1, '#58fd71', true));
+  // Criar pontos
+  /*
+  const inc = 30;
+  for (let i = 0; i < width; i += inc) {
+    for (let j = 0; j < height; j += inc) {
+      const x = Math.round(Math.random() * inc + i);
+      const y = Math.round(Math.random() * inc + j);
+      points.push(new Circle(x, y, 2, Math.random()));
+    }
+  }
+  for (const e of points) {
+    e.draw();
+  }
+  */
+
+  // console.log(points);
+
+  // tang.push(new Circle(target.x, target.y, 60, '#58fd71'));
+  // tang.push(new Circle(target.x, target.y, 1, '#1b1b1b'));
+  // tang.push(new Circle(target.x, target.y, 1, '#58fd71', true));
   // tang.push(new Circle(target.x, target.y, 1, '#58fd71', true));
   // tang.push(new Line(target.x + 100, target.y - 100, target.x - 100, target.y + 100, '#fcd060'));
 }
@@ -108,12 +108,10 @@ function animate() {
   var _iteratorError = undefined;
 
   try {
-    for (var _iterator = tang[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+    for (var _iterator = points[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
       var e = _step.value;
 
-      // e.toCenter();
-      e.animate(5);
-      // e.radius += 5;
+      e.animate();
       e.draw();
     }
   } catch (err) {
@@ -239,6 +237,41 @@ function shiftPoint(p) {
       }});
 }
 
-// Canvas manipulation
-
 */
+
+function randomString(s) {
+  var res = '';
+  for (var i = 0; i < s.length; i++) {
+    if (s[i] !== ' ') res += Math.floor(Math.random() * 10);else res += ' ';
+  }
+  return res.split('');
+}
+
+function solve(s, t) {
+  var res = randomString(s);
+  console.log(res);
+
+  var _loop = function _loop(i) {
+    console.log('x');
+    var counter = 0;
+    var si = setInterval(function () {
+      if (s[i] !== ' ') {
+        res[i] = Math.floor(Math.random() * 10);
+        console.log(res.join(''));
+      }
+
+      counter++;
+      if (counter === 10) {
+        clearInterval(si);
+        res[i] = s[i];
+        console.log(res.join(''));
+      }
+    }, 100);
+  };
+
+  for (var i = 0; i < res.length; i++) {
+    _loop(i);
+  }
+}
+
+solve('João Campinhos', 10);

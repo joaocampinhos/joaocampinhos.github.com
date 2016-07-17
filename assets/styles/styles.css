@@ -1,13 +1,15 @@
 body {
   margin: 0;
   color: #f9f1e9;
+  background-color: black;
   font-size: 20px;
+  font-family: 'Karla', sans-serif;
 }
 
 .large-header {
   position: relative;
   width: 100%;
-  background: #1b1b1b;
+  background: #16161d;
   overflow: hidden;
   background-size: cover;
   background-position: center center;
@@ -47,13 +49,12 @@ nav > ul > li {
 
 nav a {
   text-decoration: none;
-  color: #d3d7d6;
+  color: #6f6f77;
   transition: all 0.5s ease;
-  opacity: 0.5;
 }
 
 nav a.active {
-  opacity: 1;
+  color: #fefefe;
 }
 
 nav.dark a {
@@ -61,7 +62,7 @@ nav.dark a {
 }
 
 nav a:hover {
-  opacity: 1;
+  color: #28d3ab;
 }
 
 @keyframes slideInDown {

@@ -1,4 +1,5 @@
 /* eslint no-console: ["error", { allow: ["log", "warn"] }] */
+/* eslint max-len: ["error", { "ignoreComments": true }] */
 
 const elements = document.querySelectorAll('nav a');
 Array.prototype.forEach.call(elements, (el) => {
@@ -12,56 +13,54 @@ Array.prototype.forEach.call(elements, (el) => {
   });
 });
 
+/*
 window.addEventListener('scroll', () => {
   const top = window.pageYOffset || document.documentElement.scrollTop;
   const hei = document.querySelector('nav').clientHeight / 2;
   if (top + hei >= window.innerHeight) document.querySelector('nav').classList.add('dark');
   else document.querySelector('nav').classList.remove('dark');
 });
+*/
 
 let width;
 let height;
 let largeHeader;
 let canvas;
 let ctx;
-let target;
-const tang = [];
+// let target;
+const points = [];
 
+/*
 class Circle {
-  constructor(x, y, rad, color, fade = false) {
+  constructor(x, y, rad, color, alpha) {
     this.x = x;
     this.y = y;
     this.radius = rad;
-    this.color = color;
-    this.alpha = 1;
-    this.fade = fade;
+    this.color = 'rgba(255,255,255';
+    this.alpha = alpha;
   }
 
-  animate(n = 1) {
-    this.radius += n;
-    if (this.fade && this.alpha > 0) {
-      this.alpha = Math.abs((this.alpha - 0.01).toFixed(2));
-    }
+  animate() {
+    this.alpha = Math.random();
   }
 
   draw() {
-    ctx.save();
-    ctx.globalAlpha = this.alpha;
     ctx.beginPath();
     ctx.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
-    ctx.fillStyle = this.color;
+    ctx.fillStyle = `${this.color} , ${this.alpha})`;
     ctx.fill();
-    ctx.restore();
   }
 }
+*/
 
 function initHeader() {
-  const dpi = document.getElementById('testdiv').offsetWidth * window.devicePixelRatio;
+  const dpi =
+    document.getElementById('testdiv').offsetWidth * window.devicePixelRatio;
   const scaleFactor = dpi / 96;
 
   width = Math.ceil(window.innerWidth * scaleFactor);
   height = Math.ceil(window.innerHeight * scaleFactor);
-  target = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
+  // target = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
 
   largeHeader = document.getElementById('large-header');
   largeHeader.style.height = `${window.innerHeight}px`;
@@ -75,21 +74,36 @@ function initHeader() {
   canvas.height = height;
 
   ctx = canvas.getContext('2d');
-  //ctx.scale(scaleFactor, scaleFactor);
+  // ctx.scale(scaleFactor, scaleFactor);
 
-  tang.push(new Circle(target.x, target.y, 60, '#58fd71'));
-  tang.push(new Circle(target.x, target.y, 1, '#1b1b1b'));
-  tang.push(new Circle(target.x, target.y, 1, '#58fd71', true));
+  // Criar pontos
+  /*
+  const inc = 30;
+  for (let i = 0; i < width; i += inc) {
+    for (let j = 0; j < height; j += inc) {
+      const x = Math.round(Math.random() * inc + i);
+      const y = Math.round(Math.random() * inc + j);
+      points.push(new Circle(x, y, 2, Math.random()));
+    }
+  }
+  for (const e of points) {
+    e.draw();
+  }
+  */
+
+  // console.log(points);
+
+  // tang.push(new Circle(target.x, target.y, 60, '#58fd71'));
+  // tang.push(new Circle(target.x, target.y, 1, '#1b1b1b'));
+  // tang.push(new Circle(target.x, target.y, 1, '#58fd71', true));
   // tang.push(new Circle(target.x, target.y, 1, '#58fd71', true));
   // tang.push(new Line(target.x + 100, target.y - 100, target.x - 100, target.y + 100, '#fcd060'));
 }
 
 function animate() {
   ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
-  for (const e of tang) {
-    // e.toCenter();
-    e.animate(5);
-    // e.radius += 5;
+  for (const e of points) {
+    e.animate();
     e.draw();
   }
   requestAnimationFrame(animate);
@@ -200,6 +214,40 @@ function shiftPoint(p) {
       }});
 }
 
-// Canvas manipulation
-
 */
+
+
+function randomString(s) {
+  let res = '';
+  for (let i = 0; i < s.length; i++) {
+    if (s[i] !== ' ') res += Math.floor(Math.random() * 10);
+    else res += ' ';
+  }
+  return res.split('');
+}
+
+function solve(s, t) {
+  const res = randomString(s);
+  console.log(res);
+  for (let i = 0; i < res.length; i++) {
+    console.log('x');
+    let counter = 0;
+    const si = setInterval(() => {
+      if (s[i] !== ' ') {
+        res[i] = Math.floor(Math.random() * 10);
+        console.log(res.join(''));
+      }
+
+      counter++;
+      if (counter === 10) {
+        clearInterval(si);
+        res[i] = s[i];
+        console.log(res.join(''));
+      }
+
+    }, 100);
+  }
+}
+
+solve('João Campinhos', 10);
+
