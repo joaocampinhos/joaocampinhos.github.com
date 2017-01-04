@@ -4,41 +4,43 @@
   <meta charset="UTF-8">
 
   <title>João Campinhos</title>
-  
+
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <link rel="shortcut icon" href="/favicon.ico">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <link href='https://fonts.googleapis.com/css?family=Inconsolata:700' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Karla:400,700' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="/public/styles.css">
+  <link href="https://raw.githubusercontent.com/tachyons-css/tachyons/master/css/tachyons.min.css">
 </head>
 <body>
-  <nav class="slideInDown">
-    <ul>
-      <li><a class="active" href="/" >João Campinhos</a></li>
-      <li><a href="/work">Work</a></li>
-      <li><a href="/writing">Writing</a></li>
-      <li><a href="/about">About</a></li>
-    </ul>
-  </nav>
-  <div id="large-header" class="large-header">
-    <canvas id="canvas"></canvas>
-    <div class="center">
-      <h1 class="gib">João Campinhos</h1>
-      <p>Front-end developer and interface designer.</p>
-      <h3>Recent Projects</h3>
-      <ul>
-        <li>
-          <a>app porreira</a>
-        </li>
-        <li>
-          </a>outra app</a>
-        </li>
-      </ul>
+  <article class="vh-100 dt w-100 bg-blue" id="home">
+    <header class="fixed w-100 pa3 pa4-ns">
+      <nav class="fr pa3 pa4-ns slideInDown">
+        <a class="link dim b f5 f4-ns dib mr3" href="#home" title="Home">Home</a>
+        <a class="link dim   f5 f4-ns dib mr3" href="#work" title="Work">Work</a>
+        <a class="link dim   f5 f4-ns dib mr3" href="#writing" title="Writing">Writing</a>
+        <a class="link dim   f5 f4-ns dib" href="#contact" title="Contact">Contact</a>
+      </nav>
+    </header>
+    <div class="dtc v-mid washed-blue ph4">
+      <h1 class="f1 f-subheadline-l fw6 mb0">João Campinhos</h1>
+      <p class="f3 f1 lh-copy mt0">Web developer and maker of thing.</p>
     </div>
-  </div>
-  <div id='testdiv' style='height: 1in; left: -100%; position: absolute; top: -100%; width: 1in;'></div>
+  </article>
+  <main>
+    <section class="vh-100 pa4 bg-lightest-blue navy" id="work">
+      <h1>Work</h1>
+    </section>
+    <section class="vh-100 pa4 bg-light-green dark-gray" id="writing">
+      <h1>Writing</h1>
+    </section>
+    <section class="vh-100 pa4 bg-light-red washed-red" id="contact">
+      <h1>Contact</h1>
+    </section>
+  </main>
   <script src="/public/app.js"></script>
 </body>
 </html>

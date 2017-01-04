@@ -5,6 +5,7 @@ import nano from 'cssnano'
 import postcss from 'gulp-postcss'
 import browserSync from 'browser-sync'
 import cssnext from 'postcss-cssnext'
+import pimport from 'postcss-import'
 import sourcemaps from 'gulp-sourcemaps'
 
 const dist = 'public/'
@@ -13,6 +14,7 @@ gulp.task('styles', () => {
   gulp.src('assets/styles/styles.css')
   .pipe(sourcemaps.init())
   .pipe(postcss([
+    pimport,
     cssnext
   ]))
   .on('error', (err) => { console.log(err.message) })
