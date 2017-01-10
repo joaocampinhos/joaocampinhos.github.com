@@ -5,6 +5,8 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 /* eslint no-console: ["error", { allow: ["log", "warn"] }] */
 /* eslint max-len: ["error", { "ignoreComments": true }] */
 
+console.log('\nOwO What\'s This?\n         .\n        /\'\n       //\n   .  //\n   |\\//7\n  /\' "  .   . .\n | (    \\     \'._\n |  \'._  \'    \'. \'\n /    \\\'-\'_---. ) )\n.              :.\'\n|               \\\n| .    .   .     .\n\' .    |  |      |\n \\^   /_-\':     /\n / | |    \'\\  .\'\n/ /| |     \\\\  |\n\\ \\( )     // /\n \\ | |    // /\n  L! !   // /\n   [_]  L[_|\n');
+
 var colors = {
   Home: 'washed-blue',
   Work: 'navy',
@@ -42,6 +44,7 @@ function onScroll() {
 }
 
 window.addEventListener('scroll', onScroll, true);
+onScroll();
 /*
 const elements = document.querySelectorAll('nav a');
 Array.prototype.forEach.call(elements, (el) => {

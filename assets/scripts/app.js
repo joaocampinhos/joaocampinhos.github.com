@@ -1,6 +1,31 @@
 /* eslint no-console: ["error", { allow: ["log", "warn"] }] */
 /* eslint max-len: ["error", { "ignoreComments": true }] */
 
+console.log(`
+OwO What's This?
+         .
+        /'
+       //
+   .  //
+   |\\//7
+  /' " \
+ .   . .
+ | (    \\     '._
+ |  '._  '    '. '
+ /    \\'-'_---. ) )
+.              :.'
+|               \\
+| .    .   .     .
+' .    |  |      |
+ \\^   /_-':     /
+ / | |    '\\  .'
+/ /| |     \\\\  |
+\\ \\( )     // /
+ \\ | |    // /
+  L! !   // /
+   [_]  L[_|
+`);
+
 const colors = {
   Home: 'washed-blue',
   Work: 'navy',
@@ -28,6 +53,7 @@ function onScroll() {
 }
 
 window.addEventListener('scroll', onScroll, true);
+onScroll();
 /*
 const elements = document.querySelectorAll('nav a');
 Array.prototype.forEach.call(elements, (el) => {

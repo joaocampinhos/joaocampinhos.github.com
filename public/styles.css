@@ -840,6 +840,13 @@ nav {
   -webkit-animation-fill-mode: both;
           animation-fill-mode: both;
 }
+header {
+  z-index: 10;
+}
+.w6 {
+  width:384px;
+  width: 24rem;
+}
 @-webkit-keyframes slideInDown {
   from { -webkit-transform: translate3d(0, -100%, 0); transform: translate3d(0, -100%, 0); visibility: visible; }
   to { -webkit-transform: translate3d(0, 0, 0); transform: translate3d(0, 0, 0); }

@@ -5,6 +5,14 @@ nav {
   animation-fill-mode: both;
 }
 
+header {
+  z-index: 10;
+}
+
+.w6 {
+  width: 24rem;
+}
+
 @keyframes slideInDown {
   from { transform: translate3d(0, -100%, 0); visibility: visible; }
   to { transform: translate3d(0, 0, 0); }

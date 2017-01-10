@@ -1,46 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8">
 
-  <title>João Campinhos</title>
+    <title>João Campinhos</title>
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link rel="shortcut icon" href="/favicon.ico">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link href='https://fonts.googleapis.com/css?family=Inconsolata:700' rel='stylesheet' type='text/css'>
-  <link href='https://fonts.googleapis.com/css?family=Karla:400,700' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" href="/public/styles.css">
-  <link href="https://raw.githubusercontent.com/tachyons-css/tachyons/master/css/tachyons.min.css">
-</head>
-<body>
-  <article class="vh-100 dt w-100 bg-blue" id="home">
-    <header class="fixed w-100 pa3 pa4-ns">
-      <nav class="fr pa3 pa4-ns slideInDown">
-        <a class="link dim b f5 f4-ns dib mr3" href="#home" title="Home">Home</a>
-        <a class="link dim   f5 f4-ns dib mr3" href="#work" title="Work">Work</a>
-        <a class="link dim   f5 f4-ns dib mr3" href="#writing" title="Writing">Writing</a>
-        <a class="link dim   f5 f4-ns dib" href="#contact" title="Contact">Contact</a>
-      </nav>
-    </header>
-    <div class="dtc v-mid washed-blue ph4">
-      <h1 class="f1 f-subheadline-l fw6 mb0">João Campinhos</h1>
-      <p class="f3 f1 lh-copy mt0">Web developer and maker of thing.</p>
-    </div>
-  </article>
-  <main>
-    <section class="vh-100 pa4 bg-lightest-blue navy" id="work">
-      <h1>Work</h1>
+    <link href='https://fonts.googleapis.com/css?family=Inconsolata:700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Karla:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/public/styles.css">
+    <link href="https://raw.githubusercontent.com/tachyons-css/tachyons/master/css/tachyons.min.css">
+  </head>
+  <body>
+    <article class="min-vh-100 dt w-100 bg-blue" id="home">
+      <header class="fixed w-100">
+        <nav class="fr pa3 pa4-ns slideInDown">
+          <a class="dib link dim b f5 f4-ns mr3" href="#home" title="Home">Home</a>
+          <a class="dib link dim   f5 f4-ns mr3" href="#work" title="Work">Work</a>
+          <a class="dib link dim   f5 f4-ns mr3" href="#writing" title="Writing">Writing</a>
+          <a class="dib link dim   f5 f4-ns" href="#contact" title="Contact">Contact</a>
+        </nav>
+        <!--<div class="flex flex-column justify-around dn-ns w-100 vh-100 fixed bg-black-30">
+          <a class="f3 db link dim b white tc" title="Home" href="#home">Home</a>
+          <a class="f3 db link dim b white tc" title="Work" href="#work">Work</a>
+          <a class="f3 db link dim b white tc" title="Writing" href="#writing">Writing</a>
+          <a class="f3 db link dim b white tc" title="Contact" href="#contact">Contact</a>
+        </div>-->
+        <!--<a class="z-5 dn-ns link dim b f5 f4-ns fr white" href="#coiso" title="Menu">☰</a>-->
+      </header>
+      <div class="dtc v-mid washed-blue ph4">
+        <h1 class="f1 f-subheadline-l fw6 mb0">João Campinhos</h1>
+        <p class="f3 f1 lh-copy mt0 measure-wide">Web guy that makes things. Has a soft spot for security and enjoys building tools. Admires good design and usability.</p>
+      </div>
+    </article>
+    <main>
+    <section class="cf min-vh-100 pa4 bg-lightest-blue navy" id="work">
+      <h1 class="o-20 mt0 mt2-m mt0-l f-subheadline-l f1-m f2">Work</h1>
+      <div class="w-100 fl tl tc-ns">
+        <a href="https://gasolina.campinhos.pt" class="white hover-bg-washed-red hover-red bg-red f2 f1-m f-headline-l db no-underline" title="Gas prices fluctuation in Portugal">
+          <div class="pa4 pv5-m pv6-l">
+            <span class="ttu fw6 dib mb2">Gasolina</span>
+            <span class="db man measure center lh-copy f5 fw6">
+              Gas prices fluctuation in Portugal
+            </span>
+          </div>
+        </a>
+      </div>
+      <div class="w-100 w-50-ns fl">
+        <a href="#soon" class="bg-black white h4 f3 f2-l db pa4 no-underline bg-animate hover-bg-purple" title="A nicer way to wait for the bus">
+          <span class="fw6 db mb2">Carris<small class="f5 o-50"> (WIP)</small></span>
+          <span class="db man measure lh-copy f6 f5-ns fw4">
+            A nicer way to wait for the bus.
+          </span>
+        </a>
+      </div>
+      <div class="w-100 w-50-ns fl">
+        <a href="https://github.com/joaocampinhos/Primedice.js" class="h4 f3 f2-l white z5 bg-animate no-underline bg-black-80 hover-bg-gold pa4 db" title="Javascript Primedice API wrapper.">
+          <span class="db fw6 mb2">Primedice</span>
+          <span class="db measure lh-copy f6 f5-ns fw4">
+            JavaScript Primedice API wrapper.
+          </span>
+        </a>
+      </div>
+      <div class="w-100 fl tl tc-ns">
+        <a href="http://www.campinhos.pt/words/" class="dark-gray bg-moon-gray f2 f1-m f-headline-l db no-underline" title="Gas prices fluctuation in Portugal">
+          <div class="pa4 pv2-m pv3-l">
+            <span class="ttu fw6 dib mb2 grow">W</span>
+            <span class="db man measure center lh-copy f5 fw6">
+              Words - A Markdown online editor
+            </span>
+          </div>
+        </a>
+      </div>
     </section>
-    <section class="vh-100 pa4 bg-light-green dark-gray" id="writing">
-      <h1>Writing</h1>
+    <section class="min-vh-100 pa4 bg-light-green dark-gray" id="writing">
+      <h1 class="o-20 mt0 mt2-m mt0-l f-subheadline-l f1-m f2">Writing</h1>
+      <ul class="list pl0">
+        <li class="pv3 pv4-ns">
+          <b class="db f1-l f2-m f3 mb1">
+            <a class="link dark-gray dim" href="https://medium.com/sad-developer/these-arent-the-tools-you-re-looking-for-e25a04082ff1">Those are not the tools you are looking for</a>
+          </b>
+          <span class="db f2-l f3-m f5 db lh-copy measure">
+            How to keep doing web dev without learning a new tool every day.
+        </li>
+        <li class="pv3 pv4-ns">
+          <b class="db f1-l f2-m f3 mb1">
+            <a class="link dark-gray dim" href="https://medium.com/@joaocampinhos/css-perf-colors-af4e8d18455a">CSS Perf: Color</a>
+          </b>
+          <span class="db f2-l f3-m f5 lh-copy measure">
+            Proper definition of colors in CSS to maximize performance.
+          </span>
+        </li>
+        <li class="pv3 pv4-ns">
+          <b class="db f1-l f2-m f3 mb1">
+            <a class="link dark-gray dim" href="/public/tese.pdf">A versioned approach to web service evolution</a>
+          </b>
+          <span class="db f2-l f3-m f5 lh-copy measure">
+            My masters dissertation on the problem of versioned web APIs and my approach to solve it. <b>(Not the final version)<b>
+          </span>
+        </li>
+      </ul>
     </section>
-    <section class="vh-100 pa4 bg-light-red washed-red" id="contact">
-      <h1>Contact</h1>
+    <section class="cf min-vh-100 pa4 bg-light-red washed-red" id="contact">
+      <h1 class="o-20 mt0 mt2-m mt0-l f-subheadline-l f1-m f2">Contact</h1>
+      <div class="flex flex-wrap">
+        <div class="w6 mb5 mr4">
+          <h1 class="f1-ns f2 black-40">Email</h1>
+          <a href="mailto:joao@campinhos.pt" class="link b f3 f2-ns dim washed-red lh-solid">joao@campinhos.pt</a>
+        </div>
+        <div class="w6 mb5 mr4">
+          <h1 class="f1-ns f2 black-40">Twitter</h1>
+          <a href="https://twitter.com/joaocampinhos" class="link b f3 f2-ns dim washed-red lh-solid">@joaocampinhos</a>
+        </div>
+        <div class="w6 mb5 mr4">
+          <h1 class="f1-ns f2 black-40">Github</h1>
+          <a href="https://github.com/joaocampinhos" class="link b f3 f2-ns dim washed-red lh-solid">@joaocampinhos</a>
+        </div>
+        <div class="w6 mb5 mr4">
+          <h1 class="f1-ns f2 black-40">Medium</h1>
+          <a href="https://medium.com/@joaocampinhos" class="link b f3 f2-ns dim washed-red lh-solid">@joaocampinhos</a>
+        </div>
+        <div class="w6 mb5 mr4">
+          <h1 class="f1-ns f2 black-40">AMA</h1>
+          <a href="https://github.com/joaocampinhos/ama" class="link b f3 f2-ns dim washed-red lh-solid">Ask Me Anything</a>
+        </div>
+        <div class="w6 mb5 mr4">
+          <h1 class="f1-ns f2 black-40">Resume</h1>
+          <a href="/public/resume.pdf" class="link b f3 f2-ns dim washed-red lh-solid">PDF</a>
+          <span class="f3 f2-ns">-</span>
+          <a href="#soon" class="link b f3 f2-ns dim washed-red lh-solid">HTML</a>
+        </div>
+      </div>
     </section>
-  </main>
-  <script src="/public/app.js"></script>
-</body>
+    </main>
+    <script src="/public/app.js"></script>
+  </body>
 </html>

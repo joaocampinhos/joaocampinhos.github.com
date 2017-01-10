@@ -29,6 +29,7 @@ gulp.task('scripts', () => {
   .pipe(babel({
     presets: ['es2015']
   }))
+  .on('error', (err) => { console.log(err.codeFrame) })
   .pipe(sourcemaps.write('.'))
   .pipe(gulp.dest(dist))
 })
