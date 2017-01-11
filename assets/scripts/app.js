@@ -42,7 +42,6 @@ function onScroll() {
     if (pos.top <= 0 && pos.top > -h) {
       const title = el.getAttribute('title');
       const c = Object.keys(colors).map(a => colors[a]);
-      console.log(c);
       elems.forEach(elem => elem.classList.remove(...c));
       elems.forEach(elem => elem.classList.add(colors[title]));
       el.classList.add('b');
